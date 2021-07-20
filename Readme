@@ -1,0 +1,8 @@
+# Tinyproxy docker image
+
+A image with Tinyproxy ready to be used
+
+```
+docker build -t eloycoto/tinyproxy .
+docker run --rm eloycoto/tinyproxy
+```
