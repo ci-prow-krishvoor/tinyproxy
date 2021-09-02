@@ -5,6 +5,9 @@ before_install:
    - echo "$DOCKERHUB_TOKEN" | docker login -u "$DOCKERUSER" --password-stdin
    - docker login -u="${QUAY_ID}" -p="${QUAY_TOKEN}" quay.io
 
+env:
+  - export DOCKER_CLI_EXPERIMENTAL=enabled
+
 jobs:
   include:
    - stage: Build amd64 container image
