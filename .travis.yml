@@ -7,17 +7,19 @@ before_install:
 
 jobs:
   include:
-   - stage: building images
+   - stage: Build amd64 container image
      name: building amd64 image
      arch: amd64
+     os: linux
      script:
        - make docker-build
        - make docker-tag
        - make docker-push
 
-   - stage: building images
+   - stage: Build ppc64le container image
      name: building ppc64le image
      arch: ppc64le
+     os: linux
      script:
        - make docker-build
        - make docker-tag
