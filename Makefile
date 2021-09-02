@@ -38,7 +38,7 @@ docker-pull: ## Pull the container from the Registry
 manifest-create:  ## Create the Manifest
 	$(DOCKER) manifest create $(NAMESPACE)/$(NAME):$(VERSION) --amend $(NAMESPACE)/$(NAME):$(VERSION)-ppc64le --amend $(NAMESPACE)/$(NAME):$(VERSION)-amd64
 
-manifest-push: create-manifest ## Publish the Manifest
+manifest-push:  ## Publish the Manifest
 	$(DOCKER) manifest create $(NAMESPACE) 
 
 # Check http://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
