@@ -27,8 +27,5 @@ jobs:
        - make docker-build
        - make docker-tag
        - make docker-push
-       
-after_install:
-       - docker login -u="${QUAY_ID}" -p="${QUAY_TOKEN}" quay.io
        - make manifest-create
        - make manifest-push
