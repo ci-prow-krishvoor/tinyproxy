@@ -27,7 +27,5 @@ jobs:
        - make docker-build
        - make docker-tag
        - make docker-push
-
-after_success:
-   - make manifest-create
-   - make manifest-push
+       - make manifest-create
+       - make manifest-push
