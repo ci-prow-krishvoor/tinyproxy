@@ -2,7 +2,7 @@ services:
   - docker
 
 before_install:
-   - echo "$DOCKERHUB_TOKEN" | docker login -u "$DOCKERUSER" | --password-stdin
+   - echo "$DOCKERHUB_TOKEN" | docker login -u "$DOCKERUSER" --password-stdin
    - docker login -u="${QUAY_ID}" -p="${QUAY_TOKEN}" quay.io
 
 jobs:
