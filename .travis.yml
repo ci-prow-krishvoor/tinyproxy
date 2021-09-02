@@ -1,0 +1,28 @@
+services:
+  - docker
+
+before_install:
+   - echo "$DOCKERHUB_TOKEN" | docker login -u "$DOCKERUSER" | --password-stdin
+   - docker login -u="${QUAY_ID}" -p="${QUAY_TOKEN}" quay.io
+
+jobs:
+  include:
+   - stage: building images
+     name: building amd64 image
+     arch: amd64
+     script:
+       - make docker-build
+       - make docker-tag
+       - make docker-push
+
+   - stage: building images
+     name: building ppc64le image
+     arch: ppc64le
+     script:
+       - make docker-build
+       - make docker-tag
+       - make docker-push
+
+after_success:
+   - make manifest-create
+   - make manifest-push
